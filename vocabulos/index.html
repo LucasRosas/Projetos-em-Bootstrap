@@ -28,32 +28,25 @@
                         <li><a class="dropdown-item active" href="#">Vocábulos</a></li>
                         <li><a class="dropdown-item" href="#">Galerias</a></li>
                         <li><a class="dropdown-item" href="#">Tá na mídia</a></li>
-
                     </ul>
                 </div>
 
-                <div class="col-10 align-botton">
+                <div class="col-10 align-botton  align-middle p-2">
                     Vocábulos
 
                 </div>
-                <div class="col-1 ">
-                    <div class="flex-shrink-0 dropdown ">
-                        <a href="# " class="d-block link-dark text-decoration-none dropdown-toggle " id="dropdownUser2 " data-bs-toggle="dropdown " aria-expanded="false ">
-                            <img src="https://avatars.githubusercontent.com/u/8129237?v=4 " alt="mdo " width="32 " height="32 " class="rounded-circle ">
-                        </a>
-                        <ul class="dropdown-menu shadow " aria-labelledby="dropdownUser2 ">
-
-
-                            <li><a class="dropdown-item " href="# ">Perfil</a></li>
-                            <li>
-                                <hr class="dropdown-divider ">
-                            </li>
-                            <li><a class="dropdown-item " href="# ">Sair</a></li>
-                        </ul>
-                    </div>
-
+                <div class="col-1 dropdown p-1">
+                    <a href="#" class="link-dark text-decoration-none dropdown-toggle" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://avatars.githubusercontent.com/u/8129237?v=4" alt="mdo " width="32" height="32" class="rounded-circle ">
+                    </a>
+                    <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                    </ul>
                 </div>
+
             </div>
+        </div>
 
         </div>
     </header>
@@ -66,9 +59,9 @@
             </div>
 
             <div class="col-4 ">
-                <form class="w-100 me-3 ">
-                    <input type="search " class="form-control " placeholder="Pesquisar " aria-label="Search ">
-                </form>
+                <!-- <form class="w-100 me-3 search">
+                    <input type="search" class="form-control " placeholder="Pesquisar " aria-label="Search ">
+                </form> -->
             </div>
 
         </div>
@@ -83,16 +76,28 @@
                     <h5 class="modal-title" id="exampleModalLabel">Cadastrar novo Vocábulo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="py-2 mx-3 mt-3 d-md-flex justify-content-md-end">
                     <form>
+                        <input type="file" name="" id="importcsv" accept=".csv" onchange="sub(this)" hidden>
+                    </form>
+                    <button type="file" class="btn btn-success" id="btn-file" onclick="importcsv()">Importar CSV</button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-vocabulo">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="disciplina" aria-label="disciplina">
-
-                            <input type="text" class="form-control" placeholder="vocabulo" aria-label="vocábulo">
+                            <input type="text" class="form-control" placeholder="vocábulo" aria-label="vocábulo">
                             <input type="text" class="form-control" placeholder="link" aria-label="link">
+                            <button type="button" class="btn btn-outline-danger" onclick="excluir(this)"><i class="bi bi-x-circle"></i></button>
                         </div>
+
                     </form>
+                    <div class="py-2 d-md-flex justify-content-md-end">
+                        <button type="button" class="btn btn-outline-success" onclick="maisum()"><i class="bi bi-plus-circle"></i></button>
+                    </div>
+
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="button" class="btn btn-primary">Salvar</button>
@@ -100,6 +105,45 @@
             </div>
         </div>
     </div>
+
+
+    <div class="container-fluid mt-3" style="margin-top: -49px !important;">
+        <table id="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" class="table-responsive">
+            <thead>
+                <tr>
+                    <th data-field="id" data-filter-control="input" data-sortable="true">ID</th>
+                    <th data-field="disciplina" data-filter-control="select" data-sortable="true">Disciplina</th>
+                    <th data-field="vocabulo" data-filter-control="select" data-sortable="true">Vocábulo</th>
+                    <th data-field="link" data-sortable="true">Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>1</td>
+                    <td>Matemática</td>
+                    <td>Pitágoras</td>
+                    <td>https://www.youtube.com/watch?v=NZZpRJ6lIz4</td>
+                </tr>
+                <tr>
+
+                    <td>2</td>
+                    <td>Física</td>
+                    <td>Força</td>
+                    <td>https://www.youtube.com/watch?v=lpe7mT2LSuY</td>
+                </tr>
+                <tr>
+
+                    <td>3</td>
+                    <td>Espanhol</td>
+                    <td>Usted</td>
+                    <td>https://www.youtube.com/watch?v=hfqYhURxupk</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -110,7 +154,50 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js " integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4 " crossorigin="anonymous "></script>
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.css">
+    <script src="https://unpkg.com/bootstrap-table@1.18.3/dist/bootstrap-table.min.js"></script>
+    <script>
+        function importcsv() {
+            document.getElementById("importcsv").click();
+        }
 
+        function sub(obj) {
+            var file = obj.value;
+            var fileName = file.split("\\");
+            document.getElementById("btn-file").innerHTML = fileName[fileName.length - 1];
+            // document.myForm.submit();
+            event.preventDefault();
+        }
+
+        function maisum() {
+            document.getElementById('form-vocabulo').innerHTML = document.getElementById('form-vocabulo').innerHTML + `<div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="disciplina" aria-label="disciplina">
+                            <input type="text" class="form-control" placeholder="vocábulo" aria-label="vocábulo">
+                            <input type="text" class="form-control" placeholder="link" aria-label="link">
+                            <button type="button" class="btn btn-outline-danger" onclick="excluir(this)"><i class="bi bi-x-circle"></i></button>
+                        </div>`
+        }
+
+        function excluir(x) {
+            x.parentElement.remove()
+        }
+
+        //exporte les données sélectionnées
+        var $table = $('#table');
+        $(function() {
+            $('#toolbar').find('select').change(function() {
+                $table.bootstrapTable('refreshOptions', {
+                    exportDataType: $(this).val()
+                });
+            });
+        })
+
+        var trBoldBlue = $("table");
+
+        $(trBoldBlue).on("click", "tr", function() {
+            $(this).toggleClass("bold-blue");
+        });
+    </script>
 </body>
 
 </html>
