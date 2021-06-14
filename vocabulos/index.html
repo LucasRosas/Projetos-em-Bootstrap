@@ -31,7 +31,7 @@
                     </ul>
                 </div>
 
-                <div class="col-10 align-botton  align-middle p-2">
+                <div class="col-10 align-botton  align-middle p-2 fs-5 fw-bold">
                     Vocábulos
 
                 </div>
@@ -107,7 +107,7 @@
     </div>
 
 
-    <div class="container-fluid mt-3" style="margin-top: -49px !important;">
+    <div class="container-fluid mt-3 px-4" style="margin-top: -49px !important;">
         <table id="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar" class="table-responsive">
             <thead>
                 <tr>
@@ -115,15 +115,21 @@
                     <th data-field="disciplina" data-filter-control="select" data-sortable="true">Disciplina</th>
                     <th data-field="vocabulo" data-filter-control="select" data-sortable="true">Vocábulo</th>
                     <th data-field="link" data-sortable="true">Link</th>
+                    <th data-field="edit" data-sortable="false"></th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr>
 
-                    <td>1</td>
+                    <td style="width: 60px;">1</td>
                     <td>Matemática</td>
                     <td>Pitágoras</td>
                     <td>https://www.youtube.com/watch?v=NZZpRJ6lIz4</td>
+                    <td data-field="edit" data-sortable="false" style="width: 120px;">
+                        <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-archive-fill"></i></button>
+                    </td>
                 </tr>
                 <tr>
 
@@ -131,6 +137,10 @@
                     <td>Física</td>
                     <td>Força</td>
                     <td>https://www.youtube.com/watch?v=lpe7mT2LSuY</td>
+                    <td data-field="edit" data-sortable="false">
+                        <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-archive-fill"></i></button>
+                    </td>
                 </tr>
                 <tr>
 
@@ -138,6 +148,10 @@
                     <td>Espanhol</td>
                     <td>Usted</td>
                     <td>https://www.youtube.com/watch?v=hfqYhURxupk</td>
+                    <td data-field="edit" data-sortable="false">
+                        <button class="btn btn-outline-primary"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-outline-danger"><i class="bi bi-archive-fill"></i></button>
+                    </td>
                 </tr>
 
             </tbody>
