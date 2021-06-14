@@ -1,0 +1,24 @@
+body,
+html {
+    min-height: 100%;
+}
+
+.perfil:hover,
+button:hover>h5,
+.perfil:hover>div,
+button:hover {
+    color: white !important;
+    border-color: white !important;
+}
+
+.perfil>div {
+    height: 200px;
+    width: 200px;
+}
+
+@media screen and (max-width: 1399px) {
+    .perfil>div {
+        height: 150px;
+        width: 150px;
+    }
+}
